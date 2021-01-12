@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相册</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="album-container">
+        <h2>相册</h2>
+        <div class="album-wrap">
+            <div class="album-content">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/pic-1.png" width="400" height="305" alt="">
+                            <div class="mask">
+                                <div class="control-btns">
+                                    <i class="add">+</i>
+                                    <i class="minus">-</i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/pic-2.png" width="400" height="305" alt="">
+                            <div class="mask">
+                                <div class="control-btns">
+                                    <i class="add">+</i>
+                                    <i class="minus">-</i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/pic-3.png" width="400" height="305" alt="">
+                            <div class="mask">
+                                <div class="control-btns">
+                                    <i class="add">+</i>
+                                    <i class="minus">-</i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/pic-4.png" width="400" height="305" alt="">
+                            <div class="mask">
+                                <div class="control-btns">
+                                    <i class="add">+</i>
+                                    <i class="minus">-</i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="album-scan">
+            <h3>预览图：</h3>
+            <div class="album-pic">
+                <img id="scanSrc" src="" alt="">
+            </div>
+        </div>
+        <div class="album-buttons">
+            <a href="javascript:;" class="btn-add">新增图片</a>
+            <a href="javascript:;" class="btn-minus">删除图片</a>
+            <a href="javascript:;" class="btn-generate">生成相册</a>
+        </div>
+    </div>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

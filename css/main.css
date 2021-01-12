@@ -1,0 +1,158 @@
+/*通用样式*/
+html, body,
+div, span, iframe,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, abbr,
+em, img, samp, small, strong, sub, b, i,
+dl, dt, dd, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section,
+summary {
+  padding: 0;
+  margin: 0;
+}
+
+img{
+  border: none;
+}
+input,button,select,textarea{
+  border: none;
+  outline: none;
+}
+tr,
+th,
+td {
+  font-size: 12px;
+}
+ol,
+ul {
+  list-style: none;
+}
+li {
+  list-style-type: none;
+}
+h1, h2, h3, h4, h5,
+h6 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.album-container{
+    width: 1600px;
+    margin: 0 auto;
+}
+.album-container h2{
+    line-height: 60px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 36px;
+}
+.album-wrap{
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.album-content{
+    position: relative;
+    width: 1720px;
+    height: 305px;
+    padding: 54px 35px;
+    margin: 0 auto;
+    background: #000;
+}
+.album-content:before, .album-content:after{
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background: url(../img/spot.png) repeat-x;
+}
+.album-content:before{
+    top: 15px;
+}
+.album-content:after{
+    bottom: 15px;
+}
+.album-content ul{
+    overflow: hidden;
+}
+.album-content ul li{
+    position: relative;
+    float: left;
+    width: 400px;
+    height: 305px;
+    margin: 0 15px;
+    background: #fff;
+}
+.album-content ul li a{
+    cursor: default;
+    display: block;
+}
+.album-content ul li a:hover .mask{
+    display: block;
+}
+.album-content ul li .mask{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+.album-content ul li .control-btns{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.album-content ul li .control-btns i{
+    cursor: pointer;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-style: normal;
+    margin: 0 10px;
+    font-size: 30px;
+    color: #000;
+}
+.album-scan{
+    display: none;
+}
+.album-scan h3{
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.album-pic{
+    width: 100%;
+    overflow-x: auto;
+    text-align: center;
+}
+.album-buttons{
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+.album-buttons a{
+    display: block;
+    width: 180px;
+    height: 44px;
+    background: #5cb85c;
+    border-radius: 4px;
+    margin: 0 20px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    text-decoration: none;
+}
