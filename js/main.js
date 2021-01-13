@@ -6,36 +6,55 @@
         },
         event: function(){
             var _this = this;
-            // 添加一张图片
-            $('.btn-add').bind('click', function(){
-                // console.log(1);
-            })
-            // 减少一张图片
-            $('.btn-minus').bind('click', function(){
-                if(isGenerate){
-                    return alert('您已经有生成的图片了，如需重新生成图片请刷新页面~');
-                }
-                if(!$('.album-content li').hasClass('selected')){
-                    return alert('请先在相册中选择一张图片！');
-                }
-                $('.album-content li.selected').remove();
-                $('.album-content').css('width', 430 * $('.album-content li').length);
-            })
-            // 选择要删除的图片
-            $('.album-content li').bind('click', function(){
-                if(!$(this).hasClass('selected')){
-                    $(this).addClass('selected');
-                }else{
-                    $(this).removeClass('selected');
-                }
-            })
-            // 生成图片
-            $('.btn-generate').bind('click', function(){
-                if(isGenerate){
-                    return alert('您已经有生成的图片了，如需重新生成图片请刷新页面~');
-                }
-                _this.generateImg();
-            })
+
+            $(document)
+                // 删除图片
+                .on('click', ".minus",function(){
+                    if($('.album-content li').length < 2){
+                        return alert('请至少保留一张图片哦～');
+                    }
+                    $(this).parents('li').remove();
+                    _this.resizeAlbum();
+                })
+                // 新增图片
+                .on('change', ".add-pic",function(){
+                    var self = this;
+                    var tpl = '<li>\
+                            <a href="javascript:;">\
+                                <img src="{$img}" width="400" height="305" alt="">\
+                                <div class="mask">\
+                                    <div class="control-btns">\
+                                        <i class="add">\
+                                            <input type="file" accept="image/png,image/gif,image/jpeg" class="add-pic">\
+                                            +\
+                                        </i>\
+                                        <i class="minus">-</i>\
+                                    </div>\
+                                </div>\
+                            </a>\
+                        </li>';
+                    var reader = new FileReader();
+                    reader.onload = function(ev){
+                        var imgFile =ev.target.result;
+                        if(imgFile){
+                            tpl = tpl.replace('{$img}', imgFile);
+                        }
+                        $(self).parents('li').after(tpl);
+                        _this.resizeAlbum();
+                        // document.querySelector('.pic1').src = ev.target.result;
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                })
+                // 生成图片
+                .on('click', ".btn-generate",function(){
+                    if(isGenerate){
+                        return alert('您已经有生成的图片了，如需重新生成图片请刷新页面~');
+                    }
+                    _this.generateImg();
+                })
+        },
+        resizeAlbum: function(){
+            $('.album-content').css('width', 430 * $('.album-content li').length);
         },
         generateImg: function(){
             var album = document.querySelector('.album-content');
